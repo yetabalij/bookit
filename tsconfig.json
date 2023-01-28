@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "controllers/roomControler.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "controllers/roomControler.ts", "config/dbconnect.js", "pages/api/rooms/index.js"],
   "exclude": ["node_modules"]
 }
