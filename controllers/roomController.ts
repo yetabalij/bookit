@@ -6,6 +6,7 @@ const allRooms = async (req: NextApiRequest, res: NextApiResponse) => {
     const rooms = await Room.find();
     res.status(200).json({
       success: true,
+      count: rooms.length,
       rooms,
     });
   } catch (error: any) {
