@@ -1,20 +1,8 @@
 import nc from "next-connect";
 
 import { allRooms, newRoom } from "@/controllers/roomController";
-import mongoose from "mongoose";
+import { connect } from "./../../../utils/dbconnect";
 
-const uri = process.env.DATABASE;
-//db connection
-const connect = async () => {
-  try {
-    await mongoose.connect(uri);
-    console.log("connect to db.");
-  } catch (error) {
-    throw error;
-  }
-};
-
-//routes
 const handler = nc();
 connect();
 
