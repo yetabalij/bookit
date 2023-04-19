@@ -1,23 +1,24 @@
 import nc from "next-connect";
 
-import { allRooms } from "@/pages/controllers/roomController";
+import { allRooms, newRoom } from "@/controllers/roomController";
 import mongoose from "mongoose";
 
+const uri = process.env.DATABASE;
 //db connection
 const connect = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://ermias:ermias@cluster0.t7j5vim.mongodb.net/bookit?retryWrites=true&w=majority"
-    );
+    await mongoose.connect(uri);
     console.log("connect to db.");
   } catch (error) {
     throw error;
   }
 };
 
+//routes
 const handler = nc();
 connect();
 
 handler.get(allRooms);
+handler.post(newRoom);
 
 export default handler;
